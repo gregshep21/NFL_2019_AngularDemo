@@ -1,0 +1,65 @@
+
+  <body>
+    <div class="row">
+      <div *ngFor="let division of NFLDivisions; let i = index">
+        <div *ngIf="i < 4;" style="padding:0px 30px 0px 30px;">
+          <h4 class="division-header-color">&nbsp;&nbsp;{{i + 1}} - {{division?.divisionName | uppercase}}</h4>
+          <table style="margin-bottom:15px; width:195px;">
+            <tbody>
+              <tr *ngFor="let team of division?.nflDivisionTeamsInformation">
+                <td *ngIf="(!teamInformationRequested) || (team?.teamName == teamName)">
+                  <button class="btn btn-primary" style="width:100%;" (click)="showTeamInformation(team?.teamName, division?.divisionName)">{{team?.teamName}}</button>
+                </td>
+                <td *ngIf="(teamInformationRequested) && (team?.teamName !== teamName)">
+                  <button class="btn btn-primary" style="width:100%;" disabled>{{team?.teamName}}</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div *ngFor="let division of NFLDivisions; let i = index">
+        <div *ngIf="i > 3;" style="padding:0px 30px 0px 30px;">
+          <h4 class="division-header-color">&nbsp;&nbsp;{{i + 1}} - {{division?.divisionName | uppercase}}</h4>
+          <table style="margin-bottom:15px; width:195px;">
+            <tbody>
+              <tr *ngFor="let team of division?.nflDivisionTeamsInformation">
+                <td *ngIf="(!teamInformationRequested) || (team?.teamName == teamName)">
+                  <button class="btn btn-primary" style="width:100%;" (click)="showTeamInformation(team?.teamName, division?.divisionName)">{{team?.teamName}}</button>
+                </td>
+                <td *ngIf="(teamInformationRequested) && (team?.teamName !== teamName)">
+                  <button class="btn btn-primary" style="width:100%;" disabled>{{team?.teamName}}</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <br />
+    <div *ngIf="teamInformationRequested" class="row" style="width:100%;">
+      <div class="row" style="width:100%; padding-left:50px;">
+        <br />
+        <br />
+        <div style="width:225px;" >
+          <table class="table table-striped">
+            <thead class="thead-dark">
+              <tr>
+                <th>{{teamName}} Colors</th>
+              </tr>
+            </thead>
+            <tbody style="border:solid 1px grey;">
+              <tr *ngFor="let color of teamColors;">
+                <td>{{color}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div style="width:100%; padding-right:105px;">
+          <button class="btn btn-primary" style="width:195px; float:right;" (click)="resetToInitialStart()">Restart</button>
+        </div>
+      </div>
+    </div>
+  </body>

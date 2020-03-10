@@ -1,0 +1,18 @@
+
+<br />
+<div>
+  <table class="table table-striped">
+    <thead class="thead-dark">
+      <tr>
+        <th>Name : Title</th>
+      </tr>
+    </thead>
+    <tbody *ngFor="let coach of teamCoaches" style="border:solid 1px grey;">
+      <tr>
+        <td>
+          <strong>{{coach?.firstName}} {{coach?.lastName | uppercase}}</strong> : {{coach?.title}}
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

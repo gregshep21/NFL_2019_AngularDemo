@@ -1,0 +1,30 @@
+<div >
+  <br />
+  <h1>{{teamName}} Roster</h1>
+  <table class="table table-striped">
+    <thead class="thead-dark">
+      <tr>
+        <th></th>
+        <th>Name</th>
+        <th>Position</th>
+        <th>Jersey Number</th>
+        <th>College Name</th>
+        <th>Age</th>
+        <th>Height</th>
+        <th>Weight</th>
+      </tr>
+    </thead>
+    <tbody style="border:solid 1px grey;">
+      <tr *ngFor="let teamMember of teamMembers" style="padding-left:15px;">
+        <td>&nbsp;&nbsp;</td>
+        <td>{{teamMember?.firstName}} {{teamMember?.lastName}}</td>
+        <td>{{teamMember?.position}}</td>
+        <td>#{{teamMember?.jerseyNumber}}</td>
+        <td>{{teamMember?.collegeName}}</td>
+        <td>{{teamMember?.age}}</td>
+        <td>{{teamMember?.height}}</td>
+        <td>{{teamMember?.weight}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
